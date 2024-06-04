@@ -1,36 +1,47 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+Reference Links:
 
-## Getting Started
+https://github.com/payloadcms/payload-3.0-demo/
+https://nextjs.org/blog/next-15-rc
+https://react.dev/blog/2024/04/25/react-19-upgrade-guide#installing
 
-First, run the development server:
+Setup:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+If you wish to set up a similar project without cloning the setup commit (PLACEHOLDER HERE) of this project, you can follow these instructions to create your own Payload + NextJS project. As of 6/4/2024, this is confirmed working, but as with all beta and RC software in active development, this is subject to change.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This will set up your project connected to MongoDB (either local, on your own cluster, or an Atlas Cluster, your preference)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+1. Set up generic Next.js app
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+`npx create-next-app@latest`
 
-## Learn More
+2. cd into project directory and update to Next 15 RC (see link for details)
 
-To learn more about Next.js, take a look at the following resources:
+`npm install next@rc react@rc react-dom@rc`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+You will also need to overwite and override the @types/react and @types/node devDependencies if you are using Typescript. Copy paste these into 'devDependencies' in package.json (removing the previous ones)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+    	"@types/react": "npm:types-react@19.0.0-beta.2",
+    	"@types/react-dom": "npm:types-react-dom@19.0.0-beta.2",
 
-## Deploy on Vercel
+and copy paste the following at the bottom of the same file
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    "overrides": {
+    	"@types/react": "npm:types-react@19.0.0-beta.2",
+    	"@types/react-dom": "npm:types-react-dom@19.0.0-beta.2"
+    }
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+3. Install Payload 3.0 beta into project
+
+`npx create-payload-app@beta`
+
+Follow instructions in the terminal and test working with
+
+`npm run dev`
+
+navigate to localhost:3000/admin, and if sucessful, you will be presented with a 'create new user' form
+
+4. Create git repo, add to Github, and deploy to Vercel
+
+Note: Make sure you add ".env' to your .gitignore, or your secrets will be leaked
+
+5. Customize and Enjoy your new blog!
