@@ -6,7 +6,8 @@
 		"dev": "next dev",
 		"build": "next build",
 		"start": "next start",
-		"lint": "next lint"
+		"lint": "next lint",
+		"generate:types": "npx payload generate:types"
 	},
 	"engines": {
 		"node": "^18.20.2 || >=20.6.0"
