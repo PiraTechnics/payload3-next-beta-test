@@ -12,12 +12,12 @@ export const Media: CollectionConfig = {
 	access: {
 		read: () => true,
 	},
-	upload: true,
-	/* 	upload: {
-		staticURL: "/media",
+	//upload: true,
+	upload: {
+		//staticURL: "/media",
 		staticDir: "media",
 		mimeTypes: ["image/*"],
-	}, */
+	},
 	fields: [
 		{
 			name: "alt",
