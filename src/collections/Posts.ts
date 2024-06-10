@@ -1,6 +1,3 @@
-import { Alert } from "@/blocks/Alert";
-import { Quote } from "@/blocks/Quote";
-import { Content } from "@/blocks/Content";
 import type { CollectionConfig } from "payload/types";
 
 import {
@@ -88,32 +85,6 @@ export const Posts: CollectionConfig = {
 				},
 			],
 		},
-		/* {
-			type: "tabs",
-			tabs: [
-				{
-					label: "Post Hero",
-					fields: [
-						{
-							name: "postImage",
-							type: "upload",
-							relationTo: "media",
-							required: true,
-						},
-					],
-				},
-				{
-					label: "Post Layout",
-					fields: [
-						{
-							name: "layout",
-							type: "blocks",
-							blocks: [Quote, Content, Alert],
-						},
-					],
-				},
-			],
-		}, */
 		// add sidebar fields here
 		{
 			name: "status",
